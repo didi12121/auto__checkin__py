@@ -1,8 +1,11 @@
+import datetime
+
 from didi import CookieUtil, Checkin
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 
 def job():
+    print('现在是{},开始执行任务'.format(datetime.datetime.now().strftime('%Y-%m-%d')))
     cookies = CookieUtil.__get_cookie__by__pro__file(r'user-data-dir=D:\AutomationProfile')
     print("获取cookie成功,开始签到")
     pids = [
@@ -14,6 +17,7 @@ def job():
 
 
 if __name__ == '__main__':
+    print('开始执行任务')
     scheduler = BlockingScheduler(timezone='Asia/Shanghai')
     scheduler.add_job(job, 'cron', day='*', hour='0', minute='0')
     scheduler.start()
