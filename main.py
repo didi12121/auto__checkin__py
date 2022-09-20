@@ -3,8 +3,8 @@ import os
 
 from didi import CookieUtil, Checkin, Auto
 from apscheduler.schedulers.blocking import BlockingScheduler
-# profilePath = '/root/AutomationProfile'
-profilePath = 'D:\AutomationProfiles'
+profilePath = '/root/AutomationProfile'
+# profilePath = 'D:\AutomationProfiles'
 
 
 def job():
@@ -24,7 +24,7 @@ def init():
         print('====开始初始化=====')
         Auto.get_cookie(profilePath)
         print('====初始化结束,开始尝试签到====')
-        job()
+    job()
     print('====初始化成功====')
 
 
