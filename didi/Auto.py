@@ -7,6 +7,7 @@ from selenium.webdriver.common.keys import Keys
 
 def get_cookie(profile__path):
     opt = ChromeOptions()
+    opt.add_argument('--no-sandbox')
     opt.add_argument("--headless")
     opt.add_argument(r'user-data-dir={}'.format(profile__path))
     browser = webdriver.Chrome(options=opt)

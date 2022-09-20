@@ -6,6 +6,7 @@ from selenium import webdriver
 
 def __get_cookie__by__pro__file(user__data__dir):
     opt = ChromeOptions()
+    opt.add_argument('--no-sandbox')
     opt.add_argument("--headless")
     opt.add_argument(user__data__dir)
     browser = webdriver.Chrome(options=opt)
