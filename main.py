@@ -23,7 +23,7 @@ def init():
     if not os.path.exists(profilePath):
         print('====开始初始化=====')
         Auto.get_cookie(profilePath)
-        print('====初始化结束,开始尝试签到====')
+    print('====初始化结束,开始尝试签到====')
     job()
     print('====初始化成功====')
 
