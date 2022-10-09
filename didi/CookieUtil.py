@@ -14,14 +14,22 @@ def __get_cookie__by__pro__file(user__data__dir):
     print("=====打开浏览器====")
     browser.get("https://weibo.com/")
     print(browser.current_url)
+    i = 0
     while not browser.current_url.__eq__("https://weibo.com/"):
         time.sleep(3)
-        print("等待跳转中")
+        print("等待跳转中{}".format(i))
+        i += 1
+        if i == 3:
+            i = 0
+            print('尝试刷新')
+            browser.get("https://weibo.com/")
+
     data = browser.get_cookies()
     print("=======获取cokie======")
-    uid = browser.find_element(By.XPATH, '/html/body/div/div[1]/div[1]/div/div[1]/div/div/div[2]/div/div[1]/a[5]').get_attribute('href').replace('https://weibo.com/u/', '')
+    uid = browser.find_element(By.XPATH,
+                               '/html/body/div/div[1]/div[1]/div/div[1]/div/div/div[2]/div/div[1]/a[5]').get_attribute(
+        'href').replace('https://weibo.com/u/', '')
     print("=======获取uid为 {}======".format(uid))
     RedisUtil.cache_cookie(uid, data)
     browser.close()
     return RedisUtil.get_cookie(uid)
-
