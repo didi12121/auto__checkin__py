@@ -22,7 +22,7 @@ def __get_cookie__by__pro__file(user__data__dir):
         if i == 3:
             i = 0
             print('尝试刷新')
-            browser.get("https://weibo.com/")
+            browser.refresh()
 
     data = browser.get_cookies()
     print("=======获取cokie======")
