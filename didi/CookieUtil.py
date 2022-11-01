@@ -17,7 +17,7 @@ def __get_cookie__by__pro__file(user__data__dir):
     i = 0
     while not browser.current_url.__eq__("https://weibo.com/"):
         time.sleep(3)
-        print("等待跳转中{},当前地址为{}".format(i,browser.current_url))
+        print("等待跳转中{},当前地址为{}".format(i, browser.current_url))
         i += 1
         if i == 3:
             i = 0

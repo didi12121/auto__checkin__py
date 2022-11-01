@@ -3,6 +3,7 @@ import os
 
 from didi import CookieUtil, Checkin, Auto
 from apscheduler.schedulers.blocking import BlockingScheduler
+
 # profilePath = '/root/AutomationProfile'
 profilePath = 'D:\AutomationProfiles'
 
@@ -29,7 +30,6 @@ def init():
 
 
 if __name__ == '__main__':
-
     print('====开始运行脚本====')
     init()
     scheduler = BlockingScheduler(timezone='Asia/Shanghai')

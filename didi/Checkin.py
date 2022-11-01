@@ -22,11 +22,13 @@ def to__check__in(cookies, pid):
 def to__get_super__index__list(cookies):
     print("开始获取超话列表")
     jar = get_cookie(cookies)
-    response = requests.request("GET", 'https://weibo.com/ajax/profile/topicContent?tabid=231093_-_chaohua', cookies=jar)
+    response = requests.request("GET", 'https://weibo.com/ajax/profile/topicContent?tabid=231093_-_chaohua',
+                                cookies=jar)
     data = json.loads(response.text)
     # return list(map(lambda x: (str(json.loads(json.dumps(x))['link']).replace('//weibo.com/p/', '')), data['data'][
     # 'list']))
     return data['data']['list']
+
 
 def get_cookie(cookies):
     jar = RequestsCookieJar()
